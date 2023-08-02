@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>常量有关的学习</h1>
+  <h3>常量的声明： </h3>
+  <p>const str = 321 // 也就是通过一个盒子将自己装起来 <p style="color: rebeccapurple;">常量必须声明赋值</p></p> 
+  
+  <p style="color: red;">let是我们现在声明变量的值 ，以前是用var ; 但是常量的值是通过const来声明赋值的 </p>
+  
+  <h2>数据类型</h2>
+  <h3>数据类型的分类及其检测</h3>
+  <p>
+    js中基本的数据类型(js是一种若数字类型的语言)
+    <ul>
+      <li>number数字类型: 正数、负数、小数...只要根数字有关的都是</li>
+      <li>string字符串类型:  </li>
+      <li>boolean类型</li>
+      <li>undefined未定义类型</li>
+      <li>null空类型</li>
+    </ul>
+    <ul style="color: rgb(0, 30, 255);">引用数据类型: object类型</ul>
+  </p>
+
+  <p style="color: red;">在js中 ，弱数据类型的语言， 是只有我们赋值了才知道它是什么数据类型的语言</p>
+
+  
+  <h3>字符串类型</h3>
+  <p>在字符串中， 我么通过单引号 、双引号、或者 反引号` 包裹的数据都叫字符串。 单引号是被推荐使用的。 </p>
+    
+
+  <h4>模板字符串 ： （作用使用来拼接 字符串和其他变量）</h4> 
+  <p>语法
+    <ul style="color: red;">
+      <li>1. 外面使用反引号 </li>
+      <li>2. 里面的内容拼接变量是通过${}的方式来包住变量</li>
+      <li>such as:console.log(`大家好。 我是${name}.`)</li>
+    </ul>
+  </p>
+    
+    
+  <h3>未定义数据类型 undefined  (只有一个值undefined)</h3>
+  <p>如果声明了一个变量， 并没有给值， 那么就是undefined类型， 就是告诉我们 它还未被定义</p>
+  
+  <h3>null空类型（用处最多的就是给一个不想赋值的对象 赋值为null就好）</h3>
+   <p style="color: red;">对于null 和 undefined的区别： 
+      <ul>
+        <li>1. undefined 是未定义的类型， undefined + 1 == NaN（错误的类型）</li>
+        <li>2. 但是对于null而言， null + 1 == 1。 因为一个空的值加一就是等于一</li>
+      </ul>
+    </p> 
+  
+  <H2>typeof 变量:关键字的作用是查看数据类型（还可以用函数的方式( typeof(x))</H2>
+
+  
+  
+  <script src="./changliang.js"></script>
+</body>
+</html>
