@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+</head>
+<body>
+  <h1>函数的学习</h1>
+  <h2>函数的基本使用</h2>
+  <p style="color: blue;">
+    函数的声明: function函数名(){
+      <br>函数体<br>
+    }
+  </p>  
+  <p style="color: rgb(151, 122, 122);">
+    //求两个数的和 <br>
+    function add( a, b){ //如果声明了之后， 但是并没有赋值， 那么就是undefined <br>
+      let res = a + b <br>
+      return res <br>
+    } <br>
+  </p>
+
+
+
+  <h2>函数的参数&返回值</h2>
+    <p style="color: red;">注意: 
+      <br>
+      函数的参数最好赋值一个默认值， 如果不赋值的话， 那么一旦没有传参数或者传的参数不符合， 那么就会造成程序报错， 最终导致程序奔溃。
+      <br>
+      如果不传参， 那么参数的默认类型是undefined类型。 所以我们一般将函数形参默认写成0 NaN
+      
+    </p>
+
+  <h3>函数的返回值</h3>
+  <p>如果没有return 默认返回undefined类型; 
+    <br>
+    return 后面的数据不能换行写， 因为js默认换行就是语句结束
+  </p>   
+  
+
+  <h2>函数的作用域</h2>
+  <p>两个相同的函数， 后面的函数会覆盖前面的函数；
+    <br>
+    在js中， 实参和形参的个数可以不一致 
+  </p>
+  <p>全局作用域 和 局部作用域 
+    <br>
+    全局作用域可以在另一个js文件中写，也可以写在一个js文件的里面，但是是在函数等的外面。
+    <br>
+    局部作用域就是一般在函数或者循环语句中的/还可以是定义在代码块中的。
+
+  </p>
+  <h3>变量的访问原则</h3>
+  <p style="color: red;">如果变量内部中的一个变量没有声明却直接赋值， 那么这个变量也会被当成全局变量来看。但是强烈不推荐</p>
+  <p>1. 只要是代码，就至少有一个作用域
+    <br>
+    2. 在能够访问到的情况下，先局部，局部没有找到再找全局
+
+  </p>
+  <h2 style="color: red;">匿名函数</h2>
+
+  <p> function(){} : 这样就是一个匿名函数</p>
+  <h3>匿名函数的实现</h3>
+  <p>1. 函数表达式
+    <br>
+      2. 立即执行函数 
+  </p>
+  <p style="color: blue;">1. 函数表达式， 将函数赋值给一个变量， 并且通过一个变量名称进行调用。我们将之称为函数表达式
+    <br>
+    let fn = function (){  //函数体 
+      <br>
+  }
+  </p>
+  <p style="color: red;">匿名函数必须先声明再调用。多个立即执行函数之间必须用;隔开 </p>
+
+
+  <p style="color: blue;">2. 立即执行函数: 说的就是不需要调用， 写完就会立即执行。
+    <br>
+    使用场景: 避免全局变量的污染。
+    <br>
+    方式一: (function () {
+    <br> 
+      //函数体 
+    <br>
+    })();
+    <br>
+    方式二: 
+    <br>
+    (function () {
+        <br>//函数体 
+    <br>
+    }());
+  </p>
+
+  <script src="./function.js"></script>
+</body>
+</html>
