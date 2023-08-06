@@ -40,7 +40,7 @@ console.log("匿名函数的调用",fn(12,21))
 
 
 //匿名函数之 立即执行函数
-(function (w,d){}(1,2));  //其中的1,2是实参，w,d是形参{}中的为函数体
+//(function (w,d){}(1,2));  //其中的1,2是实参，w,d是形参{}中的为函数体
 
 console.log(shift())
 
@@ -53,3 +53,10 @@ console.log("小明的总成绩:" ,sumSc(arr))
 let arr1 = [121,21,111]
 console.log("小hua的总成绩:" ,sumSc(arr1))
 
+
+console.log(" 转换为Boolean类型",Boolean(""))
+console.log(" 转换为Boolean类型",Boolean(false))
+console.log(" 转换为Boolean类型",Boolean(true))
+console.log(" 转换为Boolean类型",Boolean(NaN))
+console.log(" 转换为Boolean类型",Boolean(undefined))
+console.log(" 转换为Boolean类型",Boolean())
