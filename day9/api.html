@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>web Api</title>
+</head>
+<body>
+  <h1>操作DOM、BOM等等</h1>
+  <h2>声明元素的几种</h2>
+  <p>
+    var、let 、const
+    <br>建议const优先、尽量使用const
+    const也是可以修饰常量对象的， 只要常量对象不要变动就可以使用
+    <br>
+    同时const也可以修饰数组， 而且数组中是可以添加元素的。（他并没有改变数组的值（地址），也就是数组的地址没有变，那么数组的值就也没有变）
+    当然增加之后数组的地址也是没有变得 
+  </p>
+
+  <h2>api的作用</h2>
+  <p style="color: red;">就是使用JS去操作html和浏览器
+  <br>
+    分类 : DOM(文档对象模型) 、BOM(浏览器对象模型)
+  </p>
+
+  <h3>DOM是什么</h3>
+  <p>dom: 文档对象模型。 可以操作网页内容， 实现用户交互</p>
+
+
+  <h3>dom树</h3>
+  <p>dom树是将html文档以树状结构直观的表现出来， 我们称之为文档\DOM树</p>
+  <p style="border-color: aqua;">  可以直观的展现标签与标签之间的关系。</p>
+  
+  <h1>获取DOM元素</h1>
+  <p style="color: red;">
+    浏览器根据html标签生成的js对象<br>
+    所有的标签我们都看成对象来操作，这样就能很好的操作数据了。<br>
+    let div = document.querySelector('div')<br>
+    console.log(div)<br>
+  </p>
+  <h2>万事万物皆为对象</h2>
+  <h2>通过CSS选择器的方式获取DOM对象</h2>
+  <p>
+    获取某个元素就是利用js获取页面中的元素
+    <br>
+      1. 获取匹配的第一个元素 document.querySelector('css选择器')
+     <ul>
+      <li>1.1 获取匹配的第一个元素 document.querySelector('.calssName(类名)')</li>
+      <li>1.2 获取匹配的第一个元素 document.querySelector('#id内容(id号)')</li>
+      <li>1.3 获取匹配的第一个元素 document.querySelector('ul li:first-child')</li>
+     </ul>
+     2. 获取匹配的多个元素 document.querySeWlectorAll('css选择器') 得到的结果为一个对象数组。
+     <br>
+     通过这个得到的内容是一个伪数组，有长度和索引号的数组，但是没有pop和push等数组的方法。想要得到里面的内容，就需要遍历(for)的方式获取
+  
+     <br>
+     3. 根据id获取一个元素 document.getElementById('nav') 
+     <br>
+     4. 根据标签获取一类元素，获取页面所有的div
+     document.getElementsByTagName('div')
+     <br>
+     5. 根据类名获取元素 获取页面中所有类名为w的
+     document.getElementsByClassName('W')
+
+    </p>
+  
+  <h1>操作元素内容</h1>
+  DOM对象是根据标签生成的，所以操作标签就是操作dom对象
+  <br>我们可以通过对象.innerText属性 来操作标签中的内容
+  <br>或者是通过对象.innerHTML属性(相对于上面来说唯一的区别就是可以解析标签)  来操作标签中的内容
+
+  
+  <h1>操作元素属性</h1>
+  1. 修改元素属性，就是操作标签的大小或者标签的颜色、背景色等等
+  也是通过对象.属性来实现属性的修改
+  <br>
+  2. 修改style格式中的相关信息
+  可以通过div.style.color = 'red' 为例来进行修改。如果遇到样式名有-的， 可以使用小驼峰命名法来实现
+
+
+  
+  <h1>定时器-间歇函数</h1>
+  <h1></h1>
+  <h1></h1>
+
+  <script src="./api-stu.js"></script>
+</body>
+</html>
