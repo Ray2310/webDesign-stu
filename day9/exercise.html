@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(17, 255, 0);
+    }
+    /* CSS类名class= box */
+    .box{ 
+      width: 300px;
+      height: 300px;
+      background-color: skyblue;
+      margin: 100px auto;
+      padding: 10px;
+      border: 1px solid #000;
+
+    }
+
+    .box1{
+      width: 100px;
+      height: 200px;
+      color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="box1">
+      测试颜色<br>
+      测试
+  </div>
+
+  <!-- 通过行内的script来实现 -->
+  <script>
+    //我们通过点击某个按键， 使得div的标签样式变成类名为box的css样式
+    const div = document.querySelector('div')
+    //添加类名 
+    div.className = 'box'
+    //追加类名
+    div.classList.add('box1')
+
+  </script>
+</body>
+</html>

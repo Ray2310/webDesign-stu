@@ -77,8 +77,57 @@
   2. 修改style格式中的相关信息
   可以通过div.style.color = 'red' 为例来进行修改。如果遇到样式名有-的， 可以使用小驼峰命名法来实现
 
+  <h2>2. 通过类名className操作CSS</h2>
+  <p>
+    适合修改样式比较多的情况。直接通过style属性修改比较繁琐。可以借助css类名的形式
+    <br>
+    元素.className =  'active'    //active是一个css类名
+  </p>  
 
-  
+  <h2>通过classList操作控制CSS</h2>
+  <p>
+    为了解决className容易覆盖以前的类名， 我们可以通过classList的方式追加和删除类名
+    <br>
+    语法: 
+    元素.classList.add('类名')  //追加
+    <br>
+    元素.classList.remove('类名') //直接删除
+    <br>
+    元素.classList.toggle('类名') //切换一个类，有就删除，没有就添加
+  </p>
+
+
+  <h2>操作表单元素属性</h2>
+  <p>
+    表单很多情况需要进行修改属性， 比如点击眼睛查看密码，本质上就是将表单类型(passwd)转换为文本框(text)
+    <br>
+    表单.value = '用户名'<br>
+    表单.type = 'password'
+  </p>
+  <p style="color: red;">console.log(username.value) //username.innerHTML得不到表单的内容，只能通过username.value</p>
+  <p>
+    表单中的某些属性添加了就有效果，没有添加就不会有效果<br>
+    这种情况一律使用boolean类型来代表该属性   
+  </p>
+
+  <button>点击</button>
+  <input type="text" value="电脑">
+
+  <h2>自定义属性: 标签天生自带的属性</h2>
+  <p style="color: skyblue;">
+    在html5中，推出了专门的data-自定义属性
+    <br>
+    在标签上一律以data-开头的
+    <br>
+    在dom对象上一律以dataset对象获取
+    <br>
+    比如: 
+    <div class="box" data-id="10">自定义属性</div>
+            const box = document.querySeletor('.box')
+    //获取的话通过 ： console.log(box.dataset.id)
+  </p>
+
+
   <h1>定时器-间歇函数</h1>
   <h1></h1>
   <h1></h1>
