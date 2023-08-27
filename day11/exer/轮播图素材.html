@@ -128,39 +128,74 @@
       { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
 
-    //1. 选择一个随机数作为数组的下标
-    //实现一个获取随机数的函数 
-    //const random = Math.floor(Math.random()*sliderData.length) //向下兼容0-3的数
-    // console.log(random)
-    // console.log(sliderData[random]) 
-    // 2. 将对应的数据渲染到标签中
-    // 2.1 获取图片
-    const image = document.querySelector('.slider-wrapper img')
-    // 2.2.修改图片路径
-   // image.src = sliderData[random].url
-    // 2.3 获取文字
-    const word = document.querySelector('.slider-footer p')
-
-
-    //3. 开启定时器
-    let i = 0
-    setInterval(function(){
-      i++
-      if(i>= sliderData.length){
-        i = 0
-      }
-      console.log(sliderData[i]) //这样就可以打印出对象数组中的每个数据， 接下来就是更换数据即可
-      //3.1 修改文字内容
-      word.innerHTML = sliderData[i].title
-      //3.2 修改图片路径
-      image.src = sliderData[i].url
-      //3.3 获取小圆点li，然后通过点击小圆点然后切换页面
-      //先删除以前的active ，再添加新的actvie
+  //update函数作用： 更新索引位置文件内容
+   function update(){
+      //修改图片和文字内容
+      p.innerHTML = sliderData[i].title
+      images.src = sliderData[i].url
+      // 修改小圆点的位置, 该在那一页就是选择这一页的位置
       document.querySelector('.slider-indicator .active').classList.remove('active')
       document.querySelector(`.slider-indicator li:nth-child(${i+1})`).classList.add('active')
-     
-    }, 1000) //定时函数，间隔时间1s  
 
+    }
+
+  //一、点击按钮右侧， 变量++ ，如果>= 8 则复原为0 
+    
+    //1. 获取元素
+    let i = 0
+    const images = document.querySelector('.slider-wrapper img') 
+    const p = document.querySelector('.slider-footer p')
+    //2. 注册点击右箭头事件
+    let next = document.querySelector('.next')
+    next.addEventListener('click',function(){
+      //变量++ ，如果>= 8 则复原为0 
+      i++
+      if(i >= sliderData.length){
+        i = 0 
+      }
+      //更新该位置的内容
+      update()
+    })
+
+  //二、点击按钮左侧， 变量-- ，如果<=0 则复原为7
+    let prev = document.querySelector('.prev')
+    prev.addEventListener('click',function(){
+      i--
+      if(i <= 0) {
+        i = sliderData.length - 1
+      }
+      //更新该位置的内容
+      update()
+    })
+ 
+
+  //三、鼠标经过暂定定时器
+  //3.1 首先开启定时器函数， 让其转起来
+  let timeId = setInterval(function(){
+    i++
+    if(i >= sliderData.length){
+      i = 0
+    }
+    update()
+  }, 1000) 
+  //3.2 实现鼠标经过暂定定时器
+  let slider = document.querySelector('.slider')
+  slider.addEventListener('mouseenter', function(){
+    clearInterval(timeId)
+  })
+  //3.3 实现鼠标离开继续执行定时任务
+  slider.addEventListener('mouseleave',function(){
+    //开启之前先暂定一下
+    clearInterval(timeId)
+    //继续开启定时器
+    timeId = setInterval(function(){
+    i++
+    if(i >= sliderData.length){
+      i = 0
+    }
+    update()
+    }, 1000) 
+  })
 </script>
 </body>
 

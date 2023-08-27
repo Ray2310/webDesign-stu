@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>事件监听</h1>
+  <p>什么是时间， 什么是监听 ？ </p>
+  <p style="background-color: aqua;">事件是在编程时系统内发生的动作或者发生的事情
+    <br>
+    比如: 用户在网页上点击一个按钮
+  </p>
+  <p>事件监听: 就是让程序检测是否有事件的产生， 一旦有事件的触发， 就立刻调用一个函数做出响应，也称为绑定事件或者注册事件
+    <br>
+    比如鼠标经过显示下拉菜单， 比如点击可以播放轮番图等等
+  </p>
+
+  <h2>语法</h2>
+  <p style="color: red;">
+    let button = document.querySelector('button') // 元素对象
+    <br>
+    button.addEventListener('事件类型', function(){ }) // 事件类型 和 要执行的函数
+  </p>
+  <h3>事件监听三要素: </h3>
+  <p style="background-color: rgb(74, 63, 46);">
+    1. 事件源：那个dom元素被事件触发了， 要获取dom元素
+    <br>
+    2. 事件类型 ：用什么方式触发的， 比如点击鼠标click、鼠标经过 mouseover 等
+    <br>
+    3. 事件调用的函数： 要做的事情
+  </p>
+  <p>删除random对应的数组内容: arr.splice(random,1)
+  </p>
+  <button>点击按钮</button>
+  <h2>事件监听的版本</h2> 
+  <p>
+    DOM L0 版本
+    <br>
+    事件源.on事件 = function(){ }
+    类似button.onclick = function(){ }
+    <br>
+    DOM L2 版本
+    <br>
+    事件源.addEventListener('事件类型', function(){ })
+    <br>
+    区别： 
+    on方式会出现事件被覆盖的问题。 但是addEventListener可以实现多个事件共存的（绑定多次）
+  </p>
+  <h3>鼠标经过</h3>
+  <p style="background-color: aqua;">
+    let div = document.querySelector('div')
+    <br> div.addEventListener('mouseover', function(){
+      <br>  console.log("鼠标经过打印内容")
+      <br> })
+  </p>
+  <div style="height: 200px;
+  width: 100px;background-color: #120e0e;"></div>
+
+  <h1>事件的类型</h1>
+  <h3>一. 鼠标事件</h3>
+  <p>1. click 鼠标点击
+    <br>
+    2. mouseenter 鼠标经过
+    <br>
+    3. mouseleave 鼠标离开
+  </p>
+  <h3>二. 焦点事件</h3>
+  <p>
+    1. focus 获得焦点<br>
+    2. blur 失去焦点
+  </p>
+  <h3>三. 键盘事件</h3>
+  <p>
+    1. keydown 键盘按下触发<br>
+    2. keyup 键盘抬起触发
+  </p>
+  <h3>表单输入触发</h3>
+  input 用户输入事件
+
+
+  <h2>焦点事件</h2>
+  <p>
+    1. focus 获得焦点<br>
+    2. blur 失去焦点
+  </p>
+  <p>应用场景: 点击一个输入框， 有时会出现曾经输入过的内容， 或者会出现下拉框可以选择输入的内容等等。 然后离开输入框这些东西就会消失等</p>
+  输入框: <input type="text" name="" id="" style="display: none;">
+  <p style="background-color: antiquewhite;">比如有一个隐藏的内容， 只有点击输入框它才能显现出来，这时就可以使用
+    <br>
+    let input = document.querySelector('input')
+    <br>input.addEventListener('focus' ,function(){
+      ul.style.display = 'block' //使其点击输入框显现
+      input.classList.add('search')
+    })
+    <br>
+    同时
+    <br>
+    如果想要使其离开输入框时继续隐藏， 那么就可以使用
+    <br>ul.style.display = 'none' //使其离开输入框隐藏
+    input.classList.remove('search')
+  </p>
+  <h2>键盘事件</h2>
+  <p>检测我们的键盘是否按下 或者抬起</p>
+  <p>
+    1. keydown 键盘按下触发<br>
+    2. keyup 键盘抬起触发
+  </p>
+
+
+
+  <h2>表单输入触发 案例： 评论数字统计</h2>
+  <p>
+    1. 判断用输入事件input <br>
+    2. 事件中不断获取文本框里面的字符长度， 文本域.value.length <br>
+    3. 把数字复制给下面的文本框
+  </p>
+  <h1 style="color: red;">事件对象</h1>
+  <p>
+    事件对象 也是一个对象， 这个对象中有事件触发时的相关信息
+    <br>可以哦通过事件对象 查看用户点击了哪个元素等等
+  </p>
+
+
+
+  <h3>语法: </h3>
+  <p>
+    1. 在事件绑定的回调函数中的第一个参数就是事件对象
+    <br>
+    2. 一般命名为 event \ ev \ e  
+  </p>
+  <p style="background-color: aqua;">
+    元素.addEventListener('click', function(e){
+    })
+    <br>
+    第一个参数默认就是事件对象
+  </p>
+  <h3>用法：</h3>
+  <p style="color: blueviolet;">
+    如果说我们想要获取键盘事件 。但是不是所有的键盘按压都会触发，我们只想要按压键盘的回车键 他才会触发事件， 这时就可以用到事件对象
+    <br>通过事件对象中的相关属性， 我们可得到需要的内容
+    元素.addEventListener('keyup', function(e){ <br>
+      e.key  //得到的就是我们按压键盘的哪个键 <br>
+      想要实现我们刚才的需求 ，就可以通过e.key ==='Enter'来判断 
+      <br>
+      例如点击回车就发布评论<br>
+    })
+  </p>
+
+  <h1 style="color: red;">环境对象</h1>
+  <p>
+    目标： 能够分析判断函数运行在不同环境中this所指代的对象
+    <br>环境对象： 指的是函数内部特殊的变量this(普通函数中this指的是window)， 他代表着当前函数运行时所处的环境
+    <br>普遍的约定： 谁调用this， this就执行谁
+  </p>
+
+  <h2>回调函数</h2>
+  <p>将函数A作为参数传递给函数B， 我们称函数A为回调函数</p>
+  <p>在定时器函数中， setInterval(fn, 10000) //其中的fn就是回调函数</p>
+
+  <script src="./listen.js"></script>
+</body>
+</html>
