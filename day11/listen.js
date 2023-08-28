@@ -27,6 +27,6 @@ button.addEventListener('click', function(){ //点击button按钮就会执行一
   input1.addEventListener('keyup' ,function(){
    console.log("输入事件 keyup谈起键盘 keydown 按下键盘")
   })
-
+表单反选.html
   元素.addEventListener('click', function(e){
   })
