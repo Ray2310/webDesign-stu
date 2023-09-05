@@ -80,9 +80,63 @@
   </ul>
   
   <button>点击跳转</button>
+  <h2>阻止默认行为</h2>
+  <p style="color: red;">案例：
+  <br>
+    在表单提交中， 如果填的某些内容不正确， 就无法提交表单。 
+    <br>
+    如何阻止： 
+    <br>
+    通过事件， 使用e.preventDefault() 来实现阻止默认行为
+  </p>
+  <form action="https://wclspace.xyz" method="post">
+    <input type="submit" name="" id="" value="进入Rayce个人网站">
+  </form>
+
 
   请输入内容: <input type="text">
-  <h1>三、其他事件</h1>
+  <h1>三、其他事件 在day13中有实现案例</h1>
+  <h2>  页面加载事件</h2>
+  <p> 通过页面加载事件来实现等待页面加载完成时触发的事件</p>
+  <p style="color: red;">事件名: load
+  <br>
+  window.addEventListener('load',function(){
+    <br>  //页面加载事件
+    <br> //...需要执行的页面加载内容
+    <br>
+  }) 
+</p>
+<p>如果我们需要将页面加载完成后立马执行某个内容， 就可以通过页面加载事件来实现</p>
+
+
+  <h2>页面加载事件 DOMContentLoaded事件</h2>
+    <p style="background-color: bisque;">
+    当初始的html文档加载完成后， DOMContentLoaded事件被执行。他比上面的load执行的快。
+    <br>
+    document.addEventListener('DOMContentLoaded', function(){ })
+    </p>
+
+  <h2>页面滚动事件</h2>
+  <p>比如： 返回顶部、固定导航栏</p>
+  <p style="background-color: aqua;">
+    语法： 
+    <br>
+    <br> window.addEventListener('scroll',function(){
+    <br>//页面滚动事件
+    <br>//...需要执行的页面滚动内容
+    <br>})
+  </p>
+  <p>
+    拉取滚动条他就能立马进行滚动， 也可以给元素内部添加。
+  </p>
+  <h3>获取滚动的位置: scrollLeft 和 scrollTop 
+    <br>1. 获取被卷去的大小
+    <br>2. 获取元素内容往左、往上滚出去看不到的距离
+    <br>3. div.scrollTop 这个得到的是看不到的像素。 值是可读写的
+  </h3>
+
+  <h3></h3>
+
 
 
   <h1>四、元素尺寸与位置</h1>

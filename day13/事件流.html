@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    html中的自定义属性 如下: 
+    <p>   </p>
+    <br>
+    <!-- <div data-id="0">
+      测试自定义属性0
+    </div> -->
+    <div data-id="1">
+      测试自定义属性1
+    </div>
+    <div data-id="2">
+      测试自定义属性2
+    </div>
+
+
+
+    
+    <script>
+      const div = document.querySelector('div') //几个同名得到的就是第一个的
+      console.log( "得到自定义属性的序号在这里都可以找到", div.dataset)
+
+
+    </script>
+</body>
+</html>

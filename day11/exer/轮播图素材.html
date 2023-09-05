@@ -99,6 +99,7 @@
     <div class="slider-footer">
       <p>对人类来说会不会太超前了？</p>
       <ul class="slider-indicator">
+        <!-- 排他思想， 实现移除这个active，然后添加到其他的li上 -->
         <li class="active"></li>
         <li></li>
         <li></li>
@@ -148,6 +149,7 @@
     //2. 注册点击右箭头事件
     let next = document.querySelector('.next')
     next.addEventListener('click',function(){
+      // 这里开发的时候最好不要使用 this ，因为这样无法明显的看到当前处理的元素是哪个。
       //变量++ ，如果>= 8 则复原为0 
       i++
       if(i >= sliderData.length){

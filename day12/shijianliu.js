@@ -35,3 +35,18 @@ ul.addEventListener('click',function(e){
   // this.style.color = 'red'
 })
 
+
+
+window.addEventListener('load',function(){
+  //页面加载事件
+  //...需要执行的页面加载内容
+
+})
+
+
+window.addEventListener('scroll',function(){
+  //页面滚动事件
+  //...需要执行的页面滚动内容
+  console.log(document.documentElement.scrollTop)
+
+})
