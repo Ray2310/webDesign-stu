@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>浏览器窗口大小触发的事件</h1>
+  
+
+  <h2>获取框的大小的事件</h2>
+  <div style="height: 200px;width: 100px; background-color: #222;">
+    测试获取盒子大小的事件
+  </div>
+  <p>
+    get
+  </p>
+
+  <p>元素的尺寸与位置， 如果我们想要控制的话，可以自己通过js获取
+    <br>
+    通过offsetWidth 、 offsetHeight 得到的是数值（可读写）
+    <br>
+    o
+  </p>
+
+
+    <p>
+      window.addEventListener('scroll',function(){
+      <br>  //被卷曲内容头部大于300px
+      <br>  const n = document.documentElement.scrollTop
+      <br>
+      }
+    </p>
+
+
+  <script>
+
+
+    // resize 属性， 改变浏览器的大小。
+    window.addEventListener('resize', function(){
+      console.log("浏览器窗口大小改变")
+    })
+
+    
+
+
+    const div = document.querySelector('div')
+    console.log("盒子的高: ", div.clientHeight , "盒子的宽: " , div.clientWidth)
+    
+    console.log("div的getBoundingClientRect", div.getBoundingClientRect, "它可以获取top ，height 等等很多 ")
+
+    // 获取整个窗口
+    let rem =  document.documentElement
+    console.log("整个窗口的长度:" ,rem.clientHeight, "宽度", rem.clientWidth)
+
+
+    
+
+
+
+
+  </script>
+</body>
+</html>
