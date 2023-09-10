@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>日期对象使用</h1>
+  日期对象可以得到系统时间
+  <h2>日期对象的使用必须实例化</h2>
+  <p>通过new 关键字创建的就是实例化
+
+    <br>
+    const data = new Data(); //实例化过程
+  </p>
+
+  <h2>时间戳</h2>
+  <p>时间戳就是以毫秒数为单位的数， 每个事件都有一个时间戳。 是里1970年到现在的毫秒数</p>
+  <p>1000ms == 1s</p>
+  <script>
+    const date = new Date()
+    console.log("当前时间",date)
+    
+    
+    const date1 = new Date('2022-5-1')
+    console.log("指定时间",date1)
+    
+    console.log("获取对象中的方法")
+    console.log("方法一:",date.getFullYear())
+    console.log("方法二:",date.getDate())
+    console.log("方法三:",date.getMinutes())
+    console.log("其他的用到了自己查即可")
+
+
+
+    console.log("指定格式时间: ")
+
+    const date2 = new Date()
+    console.log(`${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日${date.getHours()}时${date.getMinutes()}分${date.getSeconds()}秒`)
+
+    console.log("或者直接用官方给出的方法",date.toLocaleString())
+
+
+
+    console.log("获取时间戳:", date.getTime(),Date.now()  )
+    console.log("获取指定时间戳:", +new Date('2023-3-1 12:30:12'))
+
+
+
+
+
+
+  </script>
+</body>
+</html>

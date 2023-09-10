@@ -4,7 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+
+    /*  属性选择器: 对应相同的标签， 但是属性的value不同的标签，如果需要区别对待，就需要属性选择器
+      js 中获取属性选择器的方法：  document.querySelector('[type=text]')
+    */
+    input[type=text] {
+      color: red;
+    }
+  </style>
+
+  
 </head>
+
+
 <body>
   <h1>浏览器窗口大小触发的事件</h1>
   
@@ -33,6 +46,10 @@
       }
     </p>
 
+
+    <h1>属性选择器</h1>
+    <input type="text" value="123">
+    <input type="password">
 
   <script>
 
