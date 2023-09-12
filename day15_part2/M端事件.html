@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>
+    常见的M端事件基本都是移动端事件
+  </p>
+
+  <div style="height: 100px;
+  width: 100px; background-color: #922020;">测试移动端触摸板事件</div>
+
+  <h2>M端常见的js插件</h2>
+  <p>
+    学习使用插件的基本过程:  <br>
+    1.  熟悉官网https://swiper.com.cn <br>
+    2. 看看在线演示demo <br>
+    3. 查看基本的使用流程 <br>
+    4. 查看API文档， 去配置自己的插件
+
+    <br>注意: 多个swiper 同时使用的时候， 类名需要注意区分
+
+    swiper 就是官网演示文档中的内容差不多
+
+  </p>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+  const div =document.querySelector('div')
+  div.addEventListener('touchstart', function(){
+    console.log("触摸了")
+  })    
+  div.addEventListener('touchend', function(){
+
+    console.log("离开了")
+  })
+
+
+
+  </script>
+</body>
+</html>

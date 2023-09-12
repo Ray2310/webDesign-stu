@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <h2>克隆节点</h2>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+
+
+  <h2>删除节点</h2>
+  <p>
+    再js中， 必须通过父元素 才能移除要删除的元素
+  </p>
+  
+
+  <script>
+    const ul = document.querySelector('ul')
+    //克隆
+    const li = ul.children[0].cloneNode(true)
+    //追加到li的后面
+    ul.appendChild(li)
+
+
+    //新增节点li
+    const li1 = document.createElement('li')
+    li1.innerHTML = '我是小li' // 默认改变的是第一个
+    ul.insertBefore(li1,ul.children[0])
+
+
+    
+
+    //删除节点
+
+    const li2 = document.querySelector('li')
+    ul.removeChild(ul.children[2]) // 直接通过这个就可以实现删除
+ 
+
+
+
+    
+
+
+
+
+
+  </script>
+  
+</body>
+</html>
