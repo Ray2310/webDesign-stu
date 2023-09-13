@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>本地存储</h1>
+  <p>
+    数据存储在用户浏览器中，  设置、读取、甚至页面刷新都不丢失 ； 容量比较大 
+  
+  </p>
+
+  <h2>本地存储分类</h2>
+  <h3>localStorage</h3>
+  <p>可以将数据永久存储在用户浏览器的本地中吗， 除非手动删除
+    <br>
+    localStorage.setItem(key, value);  //采用键值对的形式存储
+    <br> 本地存储只能存储字符串 （存其他类型的都会转换为字符串类型）
+  </p>
+
+  <p>本地存储只能存储字符串， 如果想要存储复杂数据类型。 存储之后取出来就是对象类型</p>
+
+  <h3>解决存储复杂数据类型的问题</h3>
+  <p>
+    直接将复杂数据类型 转换成json字符串 再存储到本地
+    <br> 语法: JSON.stringify(复杂数据类型)
+    <br> 如果想要将json字符串转换为对象。 通过JSON.parse()转
+    <br> 转换来去的目的是为了保证复杂数据类型不丢失。
+  </p>
+
+</body>
+</html>

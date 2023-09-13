@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows对象</title>
+</head>
+<body>
+  <p>下面就是常见的window对象</p>
+  <h1>BOM(浏览器对象模型)</h1>
+  <p>
+    定义: 浏览器对象模型 BOM中包含DOM 所以BOM是整个浏览器的对象模型 <br>
+    是js的全局对象， 没有比它更大的了。
+  </p>
+
+  <h1>定时器 --- 延迟函数</h1>
+  <p>
+    永远执行的 ： 间歇函数 <br>
+    多少秒之后执行： 延迟函数 （只执行一次）
+    <br>
+    setTimeout(回调函数,等待毫秒数)
+  </p>
+
+
+
+  <h1>JS执行机制</h1>
+  <p>
+    浏览器有一个渲染引擎， 还有一个专门检测js的引擎（Google的v8）
+    <br> js最大的一个特点就是单线程， 同一个时间只能执行一个任务， 不存在同步进行
+    <br>
+    js允许脚本创建多线程， 所以出现了 同步和异步。
+    <br>
+    本质上就是流水线的执行顺序不同。同步任务都在主线程上， js的定时器等都是在任务队列中 异步执行
+  </p>
+
+
+  <p style="color: red;">
+  执行机制：
+  <br>  1.先执行主线程的执行栈中的同步任务
+  <br> 2. 异步任务放入任务队列中， 让其等等。 
+  <br> 3. 一旦执行栈中的所有同步任务执行完毕， 系统就会依次读取任务队列中的异步任务。 放到主线程的执行栈中去逐步执行 
+  </p>
+
+  <h1>location对象</h1>
+  <p>
+    location对象： 拆分并保存url的各个组成部分
+  </p>
+  <a href="https://wclspace.xyz">跳转</a>
+  <p>
+    页面不跳转，内容发生变化 。<br>
+    通过hash拿到地址
+    location.hash: 可以拿到地址中的hash值， 符号 # 后面的部分
+  </p>
+  <p>
+    location.reload(true): 刷新当前页面 （相当于F5）
+  </p>
+
+  <h1>navigator对象</h1>
+  <p>
+    检测浏览器功能的console.log(window.navigator)
+
+  </p>
+  <h1>history对象</h1>
+  <p> 
+    主要用来管理历史记录， 该对象与浏览器地址栏操作相对应， 如前进 后退等等
+    back() forword() go(参数)
+
+    <br>
+    history.back() //后退一步
+  </p>
+
+  
+
+  <script src="./window.js"></script>
+</body>
+</html>
