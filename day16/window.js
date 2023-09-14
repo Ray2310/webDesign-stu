@@ -57,4 +57,16 @@ console.log(JSON.parse(localStorage.getItem('username1')))
 
 
 
+/**
+ * 9.14 日stu
+ * 
+ */
+
+
+const arr =[123,312,222]
+const newArr = arr.map(function(ele , index){ 
+  return ele+ '颜色' + index
+})
+console.log(arr)
+console.log(newArr) // 处理数据后返回一个新的数组
 
