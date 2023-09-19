@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <form action="post">
+
+  </form>
+
+  <script>
+
+    //箭头函数
+    //todo 只有一个函数 ，一行代码的 大括号 小括号都省了
+    const ft = name => console.log("箭头函数的使用 : ", name)
+    ft("小明")
+
+    const add = (x,y) => x+ y 
+    console.log("x+y = ",add(12,11))
+
+    //实践中， 阻止表单的默认提交事件
+    const form = document.querySelector('form')
+    form.addEventListener('click', ev => ev.preventDefault())/*ev就是function函数中的默认对象参数 e */
+
+
+    
+    /**
+ //箭头函数直接返回一个对象
+    之前的写法：
+    const fn = (uname) => {
+      return {username: uname}
+    } 
+    实际是如下写法： 
+  */
+    const fn = (uname) => ({uname : uname})
+    console.log(fn("rayce")) //得到的就是对象{uname: 'rayce'}
+
+    //箭头函数中的this 指向的是上一层作用域
+
+
+  function Person(name) {
+      this.name = name;
+    }
+
+    Person.prototype.sayHello = function() {
+      console.log("Hello, ", name , "!")
+    }
+
+    let person1 = new Person("test  ")
+    // const person2 = new Person("Bob")
+    person1.sayHello()// 输出: "Hello, Alice!"
+    // person2.sayHello(); // 输出: "Hello, Bob!"
+  </script>
+</body>
+</html>

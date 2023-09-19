@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>类型转换和运算符</h1>
+  
+  console.log(2 - '2') //最后转化的结果为 0 ，因为 `-` 将'2'转换为 2
+  <p style="color: red;">任何数据和 字符串相加都是字符串; 同时除了 + 以外的数据都会转换为数字类型</p>
+
+
+  <h1>显示转换</h1>
+  let str = '123'<br>
+  //显示转换<br>
+  console.log(Number(str)) // 得到的结果就会是数字类型的123
+  <br>
+  console.log(typeof str)  //结果 ： String<br>
+  console.log(typeof Number(str)) // 结果 ： number 
+  <p style="color: red;">显示转换只是会转换当前的数据  无法转化原本的类型</p>
+  console.log(parseFloat('123.23px')) //最后得到的结果为123.23 
+  <br>
+  <p style="color: red;"> 还有parseInt 等等， 这种以后用到的地方就是 我们在
+    使用js + css的时候， 有时需要将css的长度等进行动态的加减的时候 可以使用</p>
+  
+    let num1 = prompt("input 1 ")  <br>
+    let num2 = prompt("input 2 ")  <br>
+    alert(num1 + num2) // 最后的结果为12 因为prompt输入得到的结果为string类型， 所以需要进行转换才能用于加减
+    <br>/*
+      最简单的方法就是 使用在前面加上一个let num1 = +prompt("input 1 ")
+     这样就可以隐式转换为 Number类型
+    alert("两个数的结果为 ${num1 + num2}")
+     */
+
+    
+  <h2>运算符</h2>
+  <p style="color: red;">比较运算符中的 新增的有
+    ==  : 作用是两个值的大小比较（相当于java中的equals）
+    === : 作用是值和类型两个都进行比较（相当于java中的 ==）
+    !== : 说明左右两边不全等（相当于java中的!=）
+  </p>
+
+  <p style="color: red;">设计到NuN的 都是false。 尽量不要比较小数， 因为有进制问题</p>
+    num+=3; num++ ; num--;num-=2;。//和java的没什么区别
+  
+    <p style="color: red;">或与优先级遇到了先运算与</p>
+
+    其余的分支语句什么的都和java基本没区别， 也有break switch if/else 等等
+  <script src="./jichu.js"></script>
+</body>
+</html>

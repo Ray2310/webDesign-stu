@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 构造函数传参
+
+    // 定义一个构造函数
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+
+  // 使用构造函数创建对象
+  const person1 = new Person('Alice', 25);
+  console.log(person1.name); // 输出：Alice
+  console.log(person1.age); // 输出：25
+
+ 
+  console.log("获取对象中的所有属性", Object.keys(person1)) //中间加属性名
+  const person2 = new Person('Bob', 30);
+  console.log(person2.name); // 输出：Bob
+  console.log(person2.age); // 输出：30
+
+  </script>
+</body>
+</html>

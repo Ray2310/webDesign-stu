@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  
+  <h2>浅拷贝 常见方法：
+<br>
+    1. 拷贝对象：Object.assgin() / 展开运算符 {...obj} 拷贝对象
+<br> 2. 拷贝数组：Array.prototype.concat() 或者 [...arr]
+  </h2>
+  
+
+  <h2>
+    深拷贝：常见方法：
+    <br>  1. 通过递归实现深拷贝
+    <br>  2. lodash/cloneDeep
+    <br>  3. 通过JSON.stringify()实现
+  </h2>
+
+
+  <h1>异常处理</h1>
+  <h2> throw new Error('参数不能为空!') .程序会终止</h2>
+
+  <script>
+    function foo() {
+       try {
+         // 查找 DOM 节点
+         const p = document.querySelector('.p')
+         p.style.color = 'red'
+       } catch (error) {
+         // try 代码段中执行有错误时，会执行 catch 代码段
+         // 查看错误信息
+         console.log(error.message)
+         // 终止代码继续执行
+         return
+ 
+       }
+       finally {
+           alert('执行')
+       }
+       console.log('如果出现错误，我的语句不会执行')
+     }
+     foo()
+ </script>
+
+</body>
+</html>

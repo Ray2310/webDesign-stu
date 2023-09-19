@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  JavaScript规定： 每个构造函数都有一个prototype属性， 指向另一个对象， 我们也称为原型对象
+  <br>
+  <p style="color: red;">构造函数通过原型分配的函数是所有对象共享的。 相当于Java中的Public
+    <br>这个原型对象 可以挂载函数，对象实例化不会多次创建原型上的函数， 节约内存
+    <br>
+  </p>
+
+  <h3>公共的属性写道构造函数中</h3>
+  <h3>通过prototype来给对象分配公共的方法(函数)</h3>
+  <h3>对象都会有一个属性 __proto__ : 指向构造函数的prototype原型对象， 之所以我们对象可以使用构造函数 prototype原型对象的属性和方法， 
+    就是因为__proto__原型的存在。并且student1.__proto__实例原型 指向 原型Student.prototype</h3>
+  
+
+  <h1>JavaScript 中大多是借助原型对象实现继承的特性。</h1>
+
+  <script>
+    //TODO 公共的属性写道构造函数中
+    function Student(username,password,address){
+      this.username = username;
+      this.password = password;
+      this.address = address;
+    }
+    //TODO  通过prototype来给对象分配公共的方法(函数)
+    Student.prototype.fun = function(){
+      //这是原型对象创建的函数 (我们可以通过对象实现共享访问)
+      console.log("公共的方法")
+      console.log("在公共的方法中使用公共的属性: ",this.username)
+    }
+
+    //将prototype重新给他一个对象。 ===》 就相当于 但也不是完全相等 -> Java中的构造器里的super() 之前是指向公共父类的，但是如今却是指向自定义的父类
+    
+    Student.prototype ={
+      constructor: Student, //如果不加这个，console.log(Student.prototype.constructor === Student) 返回false。 那么就相当于重新创建了一个原型， 如果添加了就相当于在他之前的原型上补充了一个fun 方法
+      fun: function(){
+          //这是原型对象创建的函数 (我们可以通过对象实现共享访问)
+      console.log("公共的方法")
+      console.log("在公共的方法中使用公共的属性: ",this.username)
+      }
+    }
+
+
+    let student0 = new Student("阿雷", "0824", "zhongguo")
+    let student1 = new Student("小明", "0824", "zhongguo")
+
+    //通过字面量创建对象
+    let obj = {
+      username: "xiaominng",
+      password: "1234",
+      address: "新疆"
+    }
+
+    console.dir(student0) //打印一个对象用dir
+    student0.fun() //可以进行使用
+    console.log(Student.prototype)
+    console.log(Student.prototype.constructor === Student) // true 说明constructor 指回 构造函数。
+
+
+
+    console.log(student1.__proto__) //和Student.prototype一样
+    console.log(student1.__proto__ === Student.prototype)
+
+
+
+
+
+
+  </script>
+</body>
+</html>
