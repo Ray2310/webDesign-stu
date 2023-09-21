@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>请求报文获取</h1>
+  <p>
+    就是发送给浏览器的信息， 一般和post方法一块使用
+  </p>
+  <button class="btn1">点击注册</button>
+  <p class="response-data"></p>
+  <h1>获取响应报文</h1>
+  <p>
+    就是返回给浏览器的信息， 一般和get方法联合使用
+  </p>
+
+  <h1>接口文档</h1>
+  <p>
+    接口就是使用AJAX和服务器通信时， 使用url、请求方法、以及参数信息
+  </p>
+
+
+  <h1>form-serialize插件</h1>
+  <p>快速搜集表单元素</p>
+  <form class="item">
+    <div class="mb-3">
+      <label for="username" class="form-label">账号名</label>
+      <input type="text" class="form-control username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">密码</label>
+      <input type="password" class="form-control password">
+    </div>
+    <button type="button" class="btn btn-primary btn-login"> 登 录 </button>
+  </form>
+  <!--
+    axios库地址：https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js
+    省份数据地址：http://hmajax.itheima.net/api/province
+
+    目标: 使用axios库, 获取省份列表数据, 展示到页面上
+    1. 引入axios库
+  -->
+  <p class="my-p"></p>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./lib/form-serialize.js"></script>
+  <script>
+    // 2. 使用axios函数
+    axios({
+      url: 'http://hmajax.itheima.net/api/province'
+    }).then(result => {
+      console.log(result)
+      // 好习惯：多打印，确认属性名
+      console.log(result.data.list)
+      console.log(result.data.list.join('<br>'))
+      // 把准备好省份列表，插入到页面
+      document.querySelector('.my-p').innerHTML = result.data.list.join('<br>') 
+    })
+
+
+
+    let btn = document.querySelector('.btn1')
+    btn.addEventListener('click' ,()=>{ // 点击事件
+      axios({
+      url: 'http://hmajax.itheima.net/api/register',
+      method: 'post',
+      data: {
+        username: 'item1232',
+        password: '1231232'
+      }
+      }).then(result => {
+        //获取url返回的所有信息
+        console.log(result)
+        console.log("返回message:", result.data.message)
+        //获取请求报文
+      }).catch(error => {
+        console.log("错误信息: " ,error.response.data.message)
+      }).finally(()=>{
+          console.log("最终finally执行的内容")
+      })
+    })
+
+    document.querySelector('.btn').addEventListener('click',()=>{
+      console.log("获取属性")
+      //注意: 使用表单获取的插件必须要给表单元素进行赋值
+      const form =  document.querySelector('.item')
+      const data = serialize(form, { hash: true, empty: true})
+      console.log(data)
+    })
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

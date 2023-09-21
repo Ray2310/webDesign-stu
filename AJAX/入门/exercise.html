@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>js中的注意点</h1>
+  <p>
+    1. js中， 函数调用如果没有加括号， 那么这就不是一个调用函数的示例， 而是把一个引用赋值给了函数， 并不真正的调用它
+    function handler() {
+     <br> // 在这里处理服务器响应。
+    <br> }   
+   <br> httpRequest.onreadystatechange = handler;
+  </p>
+  上述函数的意思是： 发送一个请求后，你会收到响应。在这一阶段，你要告诉 XMLHttpRequest 对象由哪一个 JavaScript 函数处理响应，在设置了对象的 onreadystatechange 属性后给它命名，当请求状态改变时调用函数
+  <h3>使用axios获取请求参数</h3>
+
+  <p class="get"></p>
+
+
+  <h2>url查询参数</h2>
+  <p>
+    获取浏览器中我们需要的参数
+    <br> 在资源页面后面 通过 ? 参数名1=值1&参数名2=值2....的方式来实现参数的绑定
+
+  </p>
+
+  <p class="city"></p>
+  <p class="hander"></p>
+
+  <h1>如果出现错误 ，想要捕获错误信息。 可使用如下：</h1>
+  <p>
+
+  </p>
+  <!-- axios库的位置 -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+
+    //基本语法
+    axios({
+      url: 'http://hmajax.itheima.net/api/province',
+    }).then(result =>{
+      //result得到的是url中获取的所有内容
+      console.log(result)
+      //通过params来获取对应参数所过滤的数据
+      document.querySelector('.get').innerHTML = result.data.list.join('<br>')
+
+    })
+
+    axios({
+      url: 'http://hmajax.itheima.net/api/city',
+      params:{
+        // 参数名: 参数值
+        pname: '河北省'
+      }
+      //如果想要实现属性的获取 那么就需要加 method属性 和 data属性
+      // method: 'POST', 
+      //data :{
+      // username: '用户输入的数据',
+      // passwd: '获取用户输入的密码'
+      //} 
+    }).then(result =>{
+      //result得到的是url中获取的所有内容
+      console.log(result)
+      //通过params来获取对应参数所过滤的数据
+      document.querySelector('.city').innerHTML = result.data.list.join('<br>')
+      document.querySelector('.hander').innerHTML = result.headrers
+    }).catch(error => {
+      //出现错误就可以通过error进行捕获
+      console.log(error)
+      console.log(error.response.data.message)
+
+
+    }).finally(function(){
+      console.log("执行finally信息")
+    })
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
