@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <!-- 引入bootstrap.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">  
+</head>
+<body>
+  <h1>Bootstrap弹窗的使用</h1>
+  <p>需求：使用 Bootstrap 弹框，先做个简单效果，点击按钮，让弹框出现，点击 X 和 Close 让弹框隐藏</p>
+  <h2>基本使用</h2>
+  <p>
+    1. 引入bootstrap.css and Bootstrap.js 
+    <br>
+    2. 准备弹窗标签
+    <br>
+    3. 通过自定义属性 ，控制弹窗的显示和隐藏
+  </p>
+
+
+  <h1>案例</h1>
+
+   <!-- 
+    目标：使用Bootstrap弹框
+    1. 引入bootstrap.css 和 bootstrap.js
+    2. 准备弹框标签，确认结构 data-bs-toggle="modal"
+      data-bs-target=".my-box"
+    3. 通过自定义属性，控制弹框的显示和隐藏  
+   -->
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".my-box">
+    显示弹框
+  </button>
+
+  <!-- 
+    弹框标签
+    bootstrap的modal弹框，添加modal类名（默认隐藏）
+   -->
+  <div class="modal my-box" tabindex="-1">
+    <div class="modal-dialog">
+      <!-- 弹框-内容 -->
+      <div class="modal-content">
+        
+        <!-- 弹框-头部 -->
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- 弹框-身体 -->
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+          <div>
+            
+          </div>
+        </div>
+        
+        <!-- 弹框-底部 -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+  
+  <!-- 引入bootstrap.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  <!-- 自己需要实现的js内容 -->
+  <script>
+    // 创建弹窗对象
+    // const modelDom = document.querySelector('css选择器')
+    const modelDom = document.querySelector('.my-box')
+    const model = new bootstrap.Model(modelDom)
+
+    //编辑姓名 - > 点击 - > 弹框提示
+    document.querySelector('.edit-btn').addEventListener
+    ('click', ()=>{
+      // 显示弹框
+      model.show()
+    })
+
+
+    
+
+
+  </script>
+</body>
+</html>
