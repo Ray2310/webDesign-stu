@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>AJAX原理</h1>
+  <p>
+    XMLHttpRequest对象： 用于与服务器交互 <br>
+    通过XMLHttpRequest可以在不刷新页面的情况下 请求特定的url 用于获取数据
+    <br>
+  </p>
+  <h2>关系： axios 内部采用XMLHttpRequest与服务器交互</h2>
+
+
+  <h1>使用</h1>
+  <p style="color: red;">
+    1. 创建XMLHttpRequest 对象 <br>
+    2. 配置请求方法 和 请求 url  <br>
+    3. 监听 loadend事件。 接收响应结果
+  </p>
+
+  <h1>使用原生的AJAX需要做的</h1>
+  <p>
+    如果使用原生的XMLHttpRequest ， 那么就需要自己封装axios的相关方法
+    <br>
+    比如解析 url所带的参数 可以使用自己封装的函数
+    <br>
+    使用浏览器内部原始的URLSearchParams转换，并携带到url上 <br>
+    const paramsObj = new URLSearchParams(config.params)
+
+
+  </p>
+
+  <p class="my-p"></p>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+  <script>
+    //语法实现
+    const xhr = new XMLHttpRequest()
+    // xhr.open('请求方法', '请求url网址')
+     // 2. 配置请求方法和请求 url 地址
+     xhr.open('GET', 'http://hmajax.itheima.net/api/province')
+    // 3. 监听 loadend 事件，接收响应结果
+    xhr.addEventListener('loadend', () => {
+      console.log(xhr.response)
+      const data = JSON.parse(xhr.response)
+      console.log(data.list.join('<br>'))
+      document.querySelector('.my-p').innerHTML = data.list.join('<br>')
+    })
+
+  </script>
+</body>
+</html>

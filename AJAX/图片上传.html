@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>实现图片上传</h1>
+  <!-- 文件选择元素 -->
+  <input type="file" class="upload">
+  <img src="" alt="" class="my-img">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    //1. 首先选择一张图片上传， 然后设置为body背景
+    document.querySelector('.upload').addEventListener('change', (e) => {
+      //2. 上传成功， 保存图片url 
+      console.log(e.target.files[0])
+      const fw = new FormData() // 处理表单的对象
+      fw.append('img', e.target.files[0])
+      //通过axios上传
+      axios({
+        //todo: 报错，因为黑马的服务器关了
+        url: 'http://hmajax.itheima.net/api/uploadimg',
+        method: 'POST',
+        data: fw
+
+      }).then((res) =>{
+        console.log("获取上传的内容", res)
+        const imgUrl = res.data.data.url
+        //设置背景
+        document.body.style.backgroundImage = `url(${imgUrl})`
+        
+        //设置浏览器缓存
+        localStorage.setItem('bgImg', imgUrl)
+
+      })
+    })
+    //3. 网页运行的时候， 获取url 并且使用
+    const bgUrl  = localStorage.getItem('bgImg')
+    bgUrl && (document.body.style.backgroundImage = `url(${bgUrl})`)
+      
+
+
+
+
+    
+    
+
+
+
+
+  </script>
+</body>
+</html>
