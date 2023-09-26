@@ -51,6 +51,22 @@
       document.querySelector('.my-p').innerHTML = data.list.join('<br>')
     })
 
+    //添加promise之后的
+    function myAxios(config) {
+    return new Promise((resolve, reject) => {
+      // XHR 请求
+      // 调用成功/失败的处理程序
+    })
+    }
+
+    myAxios({
+      url: '目标资源地址'
+    }).then(result => {
+        
+    }).catch(error => {
+        
+    })
+
   </script>
 </body>
 </html>
