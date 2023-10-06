@@ -8,7 +8,7 @@
 
 浅拷贝：拷贝的是地址
 
-常见方法：
+常见方法：  
 
 1. 拷贝对象：Object.assgin() / 展开运算符 {...obj} 拷贝对象
 2. 拷贝数组：Array.prototype.concat() 或者 [...arr]
