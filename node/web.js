@@ -7,6 +7,7 @@
  */
 // 1.1 加载 http 模块，创建 Web 服务对象
 const http = require('http')
+const url = require('url')
 const server = http.createServer()
 // 1.2 监听 request 请求事件，设置响应头和响应体
 server.on('request', (req, res) => {
@@ -19,3 +20,5 @@ server.on('request', (req, res) => {
 server.listen(3000, () => {
   console.log('Web 服务启动成功了')
 })
+
+console.log(url.parse('http://user:pass@host.com:8080/path/to/file?query=string#hash'));
