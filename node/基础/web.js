@@ -16,6 +16,7 @@ server.on('request', (req, res) => {
   // 设置响应体内容，结束本次请求与响应
   res.end('欢迎使用 Node.js 和 http 模块创建的 Web 服务')
 })
+server.address('192.168.1.105')
 // 1.3 配置端口号并启动 Web 服务
 server.listen(3000, () => {
   console.log('Web 服务启动成功了')
